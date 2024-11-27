@@ -1,0 +1,94 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #dfffe1; /* Light green */
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+#game-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#game-title {
+  font-size: 2em;
+  color: #3d5a80;
+}
+
+#instructions {
+  font-size: 1em;
+  color: #4f4f4f;
+  margin-bottom: 20px;
+}
+
+#tree-container {
+  position: relative;
+  margin: 0 auto;
+  width: 300px;
+  height: 400px;
+  background-color: #8bc34a; /* Green */
+  border: 5px solid #558b2f; /* Dark green border */
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#tree {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  z-index: 1;
+}
+
+.fruit-image { /* for individual fruit */
+  width: 50px; 
+  height: 50px; 
+  margin: 100px;
+  padding: 100px;
+}
+
+.fruit-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 100px;
+  padding: 100px;
+}
+.fruit {
+  display:block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  z-index: 3;
+  padding: 100px;
+}
+
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #3d5a80; /* Dark blue */
+  color: white;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #a1c4d4;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  background-color: #2a475e; /* Slightly darker blue */
+}
+
+#score {
+  margin-top: 20px;
+  font-size: 1em;
+  color: #3d5a80;
+}

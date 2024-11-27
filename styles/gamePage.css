@@ -1,0 +1,26 @@
+
+.game-page {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+  .games-section {
+    width: 100%;
+  }
+  
+  .games-section h2 {
+    text-align: center;
+  }
+  
+  .games-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    margin-top: 50px;
+  }
+  
+  .game-card {
+    text-align: center;
+  }
+  
