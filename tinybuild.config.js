@@ -47,7 +47,7 @@ const config = {
         startpage: 'index.html',  //default home page/app entry point 
         hotreload: 5000,  //hotreload websocket server port
         socket_protocol: "ws", //frontend socket protocol, wss for served, ws for localhost
-        /*
+        
         routes:{ //set additional page routes (for sites instead of single page applications)
             '/page2': 'mypage.html',
             '/custom':{ //e.g. custom page template
@@ -63,7 +63,7 @@ const config = {
             '/': 'index.html', //alt start page declaration
             '/404':'packager/node_server/other/404.html', //e.g. custom error page
         },
-        */
+        
         //reloadscripts: false, //hot swap scripts, can break things if script handles initializations, otherwise css, link, srcs all hot swap without page reloading fairly intelligently
         //delay: 50, //millisecond delay on the watch command for hot reloading
         //pwa: "service-worker.js",  //pwa mode? Injects service worker webpage code to live site, will create a service worker and webmanifest for you if not existent
