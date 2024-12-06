@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+canvas {
+  display: block;
+}
+
+:root {
+  --daytime: linear-gradient(to bottom, #87ceeb, #e0ffff);
+  --skyline: linear-gradient(to bottom, #6495ed, #4682b4);
+  --stratosphere: linear-gradient(to bottom, #191970, #000080);
+  --space: linear-gradient(to bottom, #000000, #1a1a1a);
+}
