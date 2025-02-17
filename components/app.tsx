@@ -6,7 +6,7 @@ import { YouTubePlayer } from './players/youtube'
 import {Chart} from './chart/Chart'
 import { ShaderPlayer } from './threejs/threeshader'
 import { HEGscore } from './hegscore'
-import GamePage  from './gamePage'
+import GamePage  from '../scripts/games/gamePage'
 import HomePage from './homePage'
 import SoundPage from './SoundPage'
 import SettingsPage from './settingsPage'
@@ -37,17 +37,12 @@ export class App extends Component<{},{}> {
                 switch (currentView) {
                   case 'home':
                     return <HomePage/>;
-                    break;
                   case 'games':
                     return <GamePage />;
-                    break;
                   case 'playSound':
                     return <SoundPage />;
-                    break;
                   case 'settings':
-                    
                     return <SettingsPage />;
-                    break;
                   case 'score':
                     //return <ScorePage />;
                     break;
