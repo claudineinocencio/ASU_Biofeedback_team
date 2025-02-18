@@ -18,13 +18,14 @@ interface SoundCloudPlayerState {
     widget: any;
     volume: number;
     soundCloudUrl: string;
+    HEGVolume: boolean;
 }
 
 export class SoundCloudPlayer extends Component<SoundCloudPlayerProps, SoundCloudPlayerState> {
     private iframeRef = createRef<HTMLIFrameElement>();
 
     static defaultProps = {
-        url: 'https://soundcloud.com/jet5etta/sets/people-under-the-stairs-o-s-t',
+        url: 'https://soundcloud.com/user-643905711/over-critical-1',
         autoPlay: false,
         color: '#ff5500',
         startTime: 0,
@@ -38,10 +39,11 @@ export class SoundCloudPlayer extends Component<SoundCloudPlayerProps, SoundClou
 
     stateSub:number;
 
-    state: SoundCloudPlayerState = {
+    state: SoundCloudPlayerState & {HEGVolume: boolean} = {
         widget: null,
-        volume: 100, // Default volume set to 100%
+        volume: 50, // Default volume set to 100%
         soundCloudUrl: this.props.url || '',
+        HEGVolume: false,
     };
 
     componentDidMount() {
@@ -50,11 +52,13 @@ export class SoundCloudPlayer extends Component<SoundCloudPlayerProps, SoundClou
 
         
         this.stateSub = subscribeHEGPlayback((data)=>{
+            if (this.state.HEGVolume) { 
             this.state.volume += data.hegEffort[0];
             if(this.state.volume > 100) this.state.volume = 100;
             else if (this.state.volume < 0) this.state.volume = 0;
             if(this.state.widget) this.state.widget.setVolume(this.state.volume);
-        });
+        }
+    });
         
     }
 
@@ -107,6 +111,12 @@ export class SoundCloudPlayer extends Component<SoundCloudPlayerProps, SoundClou
         if (this.state.widget) {
             this.state.widget.pause();
         }
+    };
+
+    handleHEGVolume = () => {
+        this.setState((prevState) => ({
+            HEGVolume: !prevState.HEGVolume,
+        }));
     };
 
     handleSeekTo = (milliseconds: number) => {
@@ -166,9 +176,9 @@ export class SoundCloudPlayer extends Component<SoundCloudPlayerProps, SoundClou
                     src={''}  // Initially empty, set dynamically on Load
                 ></iframe>
                 <div>
-                    <button onClick={this.handlePlay}>Play</button>
-                    <button onClick={this.handlePause}>Pause</button>
-                    <button onClick={() => this.handleSeekTo(30000)}>Seek to 30s</button>
+                    <button onClick={this.handlePlay}>⏵</button>
+                    <button onClick={this.handlePause}>⏸</button>
+                    <button onClick={this.handleHEGVolume}>HEG Volume Control</button>
                     <div>
                         <label>
                             Volume: {this.state.volume}%
