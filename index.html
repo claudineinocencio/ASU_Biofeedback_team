@@ -7,9 +7,31 @@
     <body>  
         <script src="https://w.soundcloud.com/player/api.js" type="text/javascript"></script>
         <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
-        <div id="root"></div>
+        <div id="root">
+
+             <iframe 
+                    id="spotify-player"
+                    style="border-radius:12px"
+                    src="https://open.spotify.com/embed/track/58Bdz7Q169M2BGg9zzKxv8"
+                    width="100%" 
+                    height="352" 
+                    frameborder="0"
+                    allowfullscreen
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                    loading="lazy">
+                </iframe>
+
+                <!-- Song selection buttons -->
+                <div class="song-selection">
+                    <button onclick="playSpotifySong('58Bdz7Q169M2BGg9zzKxv8')">Song 1</button>
+                    <button onclick="playSpotifySong('3JeHja32rPsiQTKIsJKw9g')">Song 2</button>
+                    <button onclick="playSpotifySong('39CKNNJskTBGnLGOTmgERN')">Song 3</button>
+                    <button onclick="playSpotifySong('4ZVanZJ1HJdxYd8ABLXGUM')">Song 4</button>
+                </div>
+            </div>
+        
         <script src="dist/index.js">
         </script>
     </body>
 </html>
-        
+       
